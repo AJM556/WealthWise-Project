@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <title>Budgeting</title>
+</head>
+<body>
+    <div class="header">
+        <div class="logo"></div>
+        <h1 class="wealthwise"><a href="/">WealthWise</a></h1>
+        <button class="profile"></button>
+    </div>
+    <div class="sidebar">
+        <button href="/" class="option"><a href="/monthlyBudget">Monthly Spending</a></button>
+        <button href="/" class="option"><a href="/weeklyBudget">Weekly Spending</a></button>
+        <button href="/" class="option" style="background:rgba(132,220,198,0.6);">Bank Info</button>
+        <button href="/" class="option"><a href="/profile">Profile</a></button>
+        <button href="/" class="logout"><a href="/logout">Log Out</a></button>
+    </div>
+    <h1 class="tab-title">Bank Information</h1>
+    <div class="tabcontent">
+        <div id="bankName" class="hidden"></div>
+        <div id="accountName" class="hidden"></div>
+        <div id="accountBalance" class="hidden"></div>
+        <p id="transactionMessage" class="hidden"></p>
+        <table id="transactionsTable" class="hidden">
+            <thead>
+              <tr>
+                <th style="padding-right: 20px">Date</th>
+                <th style="padding-left: 20px">Amount</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        <script src="./js/script.js"></script>
+    </div>
+</body>
+</html>

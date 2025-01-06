@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet" />
+        <link href="./css/main.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/6c0169fe75.js" crossorigin="anonymous"></script>
+        <title>Sign Up</title>
+    </head>
+    <body>
+        <header>
+            <div class="logo"></div>
+            <h1 class="wealthwise"><a href="/">WealthWise</a></h1>
+        </header>
+        <div class="box" id="container">
+            <table>
+                <tr>
+                    <th><a href='/'><button class="back_button">
+                        <i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000;"></i>
+                    </button></a></th>
+                    <th class="signup">Sign up</th>
+                </tr>
+            </table>
+            <div class="divider"></div>
+            <form action="/signup" method="POST">
+                <label class="direction" id="enter_name" for="name">Name:</label>
+                <input 
+                    class="textbox" 
+                    id="name" 
+                    name="first_name"
+                    title="Enter your name. Ex: John"
+                    pattern="^[A-Z][a-z]+$"
+                    required>
+                </input>
+                <label class="direction" id="enter_last" for="last">Last name:</label>
+                <input 
+                    class="textbox" 
+                    id="last" 
+                    name="last_name"
+                    title="Enter your last name. Ex: Smith"
+                    pattern="^[A-Z][a-z]+$"
+                    required>
+                </input>
+                <label class="direction" id="enter_email" for="email">Enter email:</label>
+                <input 
+                    class="textbox" 
+                    id="email" 
+                    name="email"
+                    title="" 
+                    type="email"
+                    required>
+                </input>
+                <label class="direction" id="create_password" for="password">Create a password:</label>
+                <input 
+                    type="password" 
+                    name="password"
+                    class="textbox" 
+                    id="password" 
+                    pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                    title="Must contain at least one number and one uppercase and lowercase letter, and 8 or more characters" 
+                    required>
+                </input>
+                <div id="message">
+                    <h3>Password must contain the following:</h3>
+                    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                    <p id="capital" class="invalid">An <b>uppercase</b> letter</p>
+                    <p id="number" class="invalid">A <b>number</b></p>
+                    <p id="length" class="invalid">At least <b>8 characters</b></p>
+                  </div>
+                <label class="direction" id="confirm_password" for="confirmed_password">Confirm password:</label>
+                <input 
+                    type="password" 
+                    class="textbox" 
+                    name="confirm_password"
+                    id="confirmed_password" 
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                    title="Passwords must match" 
+                    required>
+                </input>
+                <a href='no link yet'><button class="create_account" type="submit">Create an account</button></a>
+            </form>
+            <a href='/login'><button class="already_have">Already have an account?</button></a>
+        </div>
+
+        <script src="./js/script.js">
+        </script>
+    </body>
+</html>

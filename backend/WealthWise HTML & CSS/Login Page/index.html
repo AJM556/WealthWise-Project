@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet" />
+        <link href="./css/main.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/6c0169fe75.js" crossorigin="anonymous"></script>
+        <title>Login Page</title>
+    </head>
+    <body>
+        <header>
+            <div class="logo"></div>
+            <h1 class="wealthwise"><a href="/">WealthWise</a></h1>
+        </header>
+        <div class="box">
+            <table>
+                <tr>
+                    <th><a href="/"><button class="back_button">
+                        <i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000;"></i>
+                    </button></a></th>
+                    <th class="login">Log in</th>
+                </tr>
+            </table>
+            <!--code for taking user back to landing page-->
+            <div class="divider"></div>
+            <form action="/login" method="POST">
+                <label class="direction" id="enter_email" for="email">Email:</label>
+                <input class="input" type="email" id="username" name="email" required>
+                    <!--check this to see if this does what backend wants-->
+                <label class="direction" id="enter_password" for="password">Password:</label>
+                <input 
+                    class="input" 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                    title="Must contain at least one number and one uppercase and lowercase letter, and 8 or more characters"
+                    required> 
+                    <!--check this to see if this does what backend wants-->
+                <button type="submit" class="login-button">Login</button>
+                <!-- Add Hover effect for button-->
+            </form> 
+            <!--<a href="link to forgot password page">
+                <button class="service-prompts" id="forgot_password">Forgot your password?</button>-->
+            </a> <!-- Link to password page -->
+            <a href="/signup">
+                <button class="service-prompts" id="no_account">Don't have an account?</button>
+            </a> <!--Link to sign up page-->
+        </div>
+    </body>
+</html>

@@ -1,0 +1,124 @@
+<!--BANK IFNO TAB-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./main.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <h1 class="wealthwise"><a href="/">WealthWise</a></h1>
+        <button class="profile"></button>
+    </header>
+    <div class="sidebar">
+        <button href="/" class="option">Monthly Spending</button>
+        <button href="/" class="option">Weekly Spending</button>
+        <button href="/" class="option" style="background:rgba(132,220,198,0.6);">Bank Info</button>
+        <button href="/" class="option">Profile</button>
+        <button href="/" class="logout"><a href="/logout">Log out</a></button>
+    </div>
+    <h1 class="tab-title">Please Connect to a Bank to Continue</h1>
+    <div class="dashboard-section">
+        <button class="dashboard-button"><a href="#" id="connect">Connect to Bank</a></button>
+        <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    </div>
+</body>
+
+
+
+<script>
+    let linkTokenData;
+
+    const api_url = 'http://localhost:8000';
+    const web_url = 'http://localhost:3000';
+
+    const initializeLink = async function() {
+        const linkTokenResponse = await fetch(`${api_url}/api/create_link_token`);
+        linkTokenData = await linkTokenResponse.json();
+        console.log(JSON.stringify(linkTokenData));
+        console.log(JSON.stringify(linkTokenData.link_token));
+    }
+
+    const startLink = function(){
+        if (linkTokenData == undefined){
+            console.log('Why');
+            return; 
+        }
+        const handler = Plaid.create({
+            token: linkTokenData.link_token,
+            onSuccess: async (publicToken, metadata) => {
+                console.log('Public Token: ', publicToken);
+                const access_token = await exchangeToken(publicToken);
+                window.location.href = '/dashboard';
+            },
+            onExit: (err, metadata) => {
+                console.log('Error: ', JSON.stringify(err));
+                console.log('Metadata: ', metadata);
+            },
+            onEvent: (eventName, metadata) => {
+                console.log('Event ', eventName);
+            }
+        })
+        handler.open();
+    }
+
+    const exchangeToken = async function(publicToken){
+        console.log(publicToken)
+        const tokenExchangeResponse = await fetch(`${api_url}/api/exchange_public_token`, {
+            method: 'POST',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({ public_token: publicToken }),
+        });
+        const tokenExchangeData = await tokenExchangeResponse.json();
+        // console.log(tokenExchangeData);
+        console.log('Done exchange token');
+        // window.location.href='index.html';
+        try{
+            const tokenPublished = await fetch(`${web_url}/post_access_token`,{
+                method:'POST',
+                headers: {'Content-type': 'application/json'},
+                body: JSON.stringify({access_token:tokenExchangeData}),
+            })
+        }catch(e){
+            console.log(e);
+        }
+
+    }
+
+    const checkConnect = async function(){
+        const connected = await fetch(`${api_url}/api/is_user_connected`);
+        const connectResponse = await connected.json();
+        console.log(JSON.stringify(connectResponse));
+    }
+
+    const findBank = async function(){
+        const bankResponse = await fetch(`${api_url}/api/get_connected_bank`);
+        const bankName= await bankResponse.json();
+        console.log(JSON.stringify(bankName));
+    }
+
+    const getAccounts = async function(){
+        const accountsResponse = await fetch(`${api_url}/api/get_accounts`);
+        const accounts = await accountsResponse.json();
+        console.log(JSON.stringify(accounts));
+    }
+
+    const getTransactions = async function(){
+        const transactionsResponse = await fetch(`${api_url}/api/get_transactions`);
+        const transactions = await transactionsResponse.json();
+        console.log(JSON.stringify(transactions));
+    }
+
+    //document.querySelector('#getTransactions').addEventListener('click', getTransactions);
+    //document.querySelector('#findBank').addEventListener('click', findBank);
+    document.querySelector('#connect').addEventListener('click', startLink);
+    //document.querySelector('#testConnect').addEventListener('click', checkConnect);
+    //document.querySelector('#getAccounts').addEventListener('click', getAccounts);
+    initializeLink();
+
+</script>
+</html>

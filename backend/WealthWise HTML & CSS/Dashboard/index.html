@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet" />
+        <link href="./css/main.css" rel="stylesheet" />
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <div class="header">
+            <div class="logo"></div>
+            <h1 class="wealthwise"><a href="/">WealthWise</a></h1>
+            <button class="profile"></button>
+        </div>
+        <div class="sidebar">
+            <button href="/" class="option"><a href="/monthlyBudget">Monthly Spending</a></button>
+            <button href="/" class="option"><a href="/weeklyBudget">Weekly Spending</a></button>
+            <button href="/" class="option"><a href="/bankInfo">Bank Info</a></button>
+            <button href="/" class="option"><a href="/profile">Profile</a></button>
+            <button href="/" class="logout"><a href="/logout">Log Out</a></button>
+        </div>
+        <h1 class="tab-title", style="margin-left: 15%;">Dashboard</h1>
+        <div class="tabcontent">
+            <h1 id="user_name" style="margin-top: 10%";>Hello, </h1>
+            <h1>Welcome to your dashboard!</h1>
+            <h2>
+                <--Use the sidebar to navigate your spending, banking info, profile, and settings pages.
+            </h2>
+        </div>
+        <script>
+            async function getSession() {
+                console.log('fetching user details')
+                const user_session = await fetch('http://localhost:3000/session');
+                if(user_session.ok){
+                    const user_details = await user_session.json()
+                    console.log(user_details.name)
+                    if(user_details){
+                        const user_name = document.getElementById('user_name');
+                        user_name.textContent = `Hello, ${user_details.name}`;
+                    }
+                }
+            }
+            getSession();
+
+        </script>
+    </body>
+</html>

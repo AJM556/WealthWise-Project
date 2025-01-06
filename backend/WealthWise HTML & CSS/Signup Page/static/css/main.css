@@ -1,0 +1,225 @@
+a {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Makes the color the same as the parent */
+} 
+
+body {
+  margin: 0;
+  font-size: 20px;
+  font-family: Karla;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  background-color: rgba(34,34,34,1);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.wealthwise {
+  font-weight: Bold;
+  font-size: 30px;
+  color: #fff;
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+  background-color: rgba(132,220,198,1);
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.box {
+  width: 493px;
+  height: 854px;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  margin-top: 8%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(132,220,198,1);
+  border-radius: 38px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1%;
+}
+
+table {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 5.7%;
+  width: 73%;
+}
+
+.back_button {
+  border-style: none;
+  background-color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.back_button:hover {
+  transform: scale(1.1);
+}
+
+.back_button:active {
+  transform: scale(1);
+}
+
+.signup {
+  font-weight: SemiBold;
+  font-size: 48px;
+}
+
+.divider {
+  width: 392px;
+  border: 3px solid rgba(217,217,217,1);
+  margin-left: 10%;
+  border-radius: 6px;
+}
+
+input, label {
+  display: inline-block;
+}
+
+label {
+  color: rgba(0,0,0,1);
+  font-weight: SemiBold;
+  margin-top: 4%;
+}
+
+#enter_name {
+  margin-right: 66%;
+}
+
+#enter_last {
+  margin-right: 58%;
+}
+
+#enter_email {
+  margin-right: 56%;
+}
+
+#create_password {
+  margin-right: 43.5%;
+}
+
+#confirm_password {
+  margin-right: 43.5%;
+}
+
+input {
+  width: 363px;
+  height: 53px;
+  background: rgba(217,217,217,1);
+  border-radius: 38px;
+  border-style: solid;
+  border-color: rgba(217,217,217,1);
+  margin-top: 2%;
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: 0.3s;
+  font-size: 20px;
+  font-family: Karla;
+}
+
+input[type=password] {
+  font-size: 35px;
+}
+
+input:hover {
+  border-color: rgba(217,217,217,1);
+  background: #fff;
+}
+
+input:focus {
+  background: #fff;
+}
+
+.create_account {
+  width: 253px;
+  height: 59px;
+  background: rgba(132,220,198,1);
+  border-radius: 38px;
+  border-style: solid;
+  border-color: rgba(132,220,198,1);
+  margin-top: 7%;
+  border-style: none;
+  font-family: Karla;
+  font-weight: Bold;
+  font-size: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.create_account:hover {
+  background: #fff;
+  border-style: solid;
+  border-color: rgba(132,220,198,1);
+  transform: scale(1.02);
+}
+
+.create_account:active {
+  transform: scale(1);  
+}
+
+.already_have {
+  width: 273px;
+  color: rgba(239,71,111,1);
+  font-family: Karla;
+  font-weight: SemiBold;
+  font-size: 20px;
+  border-style: none;
+  background: #fff;
+  text-align: center;
+  margin-top: 5%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.already_have:hover {
+  transform: scale(1.04);
+}
+
+.already_have:active {
+  transform: scale(1);
+}
+
+#message {
+  display:none;
+  color: #000;
+  position: relative;
+}
+
+#message h3 {
+  font-size: 20px;
+}
+
+#message p {
+  font-size: 18px;
+}
+
+.valid {
+  color: rgba(132,220,198,1);
+}
+
+.valid:before {
+  position: relative;
+  right: 17px;
+  content: "✓";
+}
+
+.invalid {
+  color: rgba(239,71,111,1);
+}
+
+.invalid:before {
+  position: relative;
+  right: 17px;
+  content: "✖";
+}
