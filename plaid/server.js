@@ -8,7 +8,6 @@ const moment = require('moment'); // Used to get current date
 const { Configuration, PlaidApi, PlaidEnvironments } = require('plaid'); // plaid tools
 const json = require('body-parser/lib/types/json'); // json tool
 
-// cole code input :) 
 const cors = require('cors'); // making cors oject
 app.use(cors()) // allow for access from all origins NOTE change on deployment
 
