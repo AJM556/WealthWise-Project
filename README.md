@@ -16,7 +16,7 @@ NOTE: In order to run the application, you will need to add your own client ID a
 
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
 
-- [SQL](https://www.w3schools.com/sql/)(for those without experience on the team)
+- [SQL](https://www.w3schools.com/sql/)
 
 - [node-postgres](https://www.npmjs.com/package/pg)
 
