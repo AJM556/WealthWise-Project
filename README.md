@@ -2,10 +2,7 @@
 Financial app for comp sci capstone
 WealthWise Web Application
 
-- Weekly update link: https://docs.google.com/document/d/1MFZdZ16H9pybHSMBO4QIJi-62v7lA9uFw8dVGtlfPJQ/edit
-- Living Document: https://docs.google.com/document/d/1rbfdjovfL6vFj1AmnvhAGyDshRcrKTHOxjZwk7lt6IM/edit
-- User Guide: https://docs.google.com/document/d/1dSmfAoZ3wY3cWtgJmsOVYX7evPokbb8Djm2eVs2raR8/edit?tab=t.0
-
+NOTE: In order to run the application, you will need to add your own client ID and secret keys obtained by creating an account with PLAID to the .env file in the plaid folder. Additionally, you will need to use the .env file in the backend folder to connect your own database to the application. 
 
 ## Links for Development (Mostly Docs for 3rd Party tools)
 
