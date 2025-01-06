@@ -12,8 +12,6 @@ NOTE: In order to run the application, you will need to add your own client ID a
 
 - [Express-Session](https://www.npmjs.com/package/express-session)
 
-- [Helmet](https://helmetjs.github.io)
-
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
 
 - [SQL](https://www.w3schools.com/sql/)
