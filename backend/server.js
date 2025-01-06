@@ -1,14 +1,3 @@
-// FUTURE GOALS
-/*
-#. goal ~ priority (status)
-1. Set up https certs for server ~ low (not started)
-4. create function for password reset ~ med (not started)
-6. find code repeated code that can be turned into functions/objects ~ low (working on)
-8. impletn redirects based on user being logged in or not ex. if a user tries to acces part of a 
-    site that requires a login and their not logged in redirect to the login page. (started)
-*/
-
-
 //init https
 const https = require('https');
 
