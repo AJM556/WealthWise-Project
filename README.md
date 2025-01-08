@@ -1,8 +1,6 @@
 # WealthWise Application
 Financial appication for Computer Science Capstone
 
-WealthWise Web Application
-
 NOTE: In order to run the application, you will need to add your own client ID and secret keys obtained by creating an account with PLAID to the .env file in the plaid folder. Additionally, you will need to use the .env file in the backend folder to connect your own database to the application. 
 
 ## Links for Development (Mostly Docs for 3rd Party tools)
